@@ -2,25 +2,25 @@
 
 ## Project setup
 ```
-npm install
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+yarn run serve
 ```
 #### or for electron development
 ```
-npm run electron:serve
+yarn run electron:serve
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+yarn run build
 ```
 #### or for electron build
 ```
-npm run electron:build
+yarn run electron:build
 ```
 
 ### Lints and fixes files
