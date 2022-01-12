@@ -1,0 +1,8 @@
+{
+  "appId": "com.example.app",
+  "appName": "weather",
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "linuxAndroidStudioPath": "/opt/android-studio/bin/studio.sh"
+
+}
