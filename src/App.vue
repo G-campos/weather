@@ -4,6 +4,11 @@
         <div class="search-box">
             <input type="text" class="search-bar" placeholder="Search..." v-model="query" @keypress="fetchWeather"/>
         </div>
+        <div class="weather-wrap">
+          <div class="location-box">
+            <div class="location"> Location: {{ coordinates }} </div>
+          </div>
+        </div>
         <Spinner v-if="loader"/>
         <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
             <div class="location-box">
@@ -21,6 +26,8 @@
 
 <script>
 import Spinner from 'vue-simple-spinner'
+import { Geolocation } from '@capacitor/geolocation'
+
 export default {
     components: {
       Spinner
@@ -28,25 +35,37 @@ export default {
     name: 'App',
     data() {
         return {
-            api_key: 'ff64e45188656a334c53dde223916f8f',
+            api_key: 'fb5fac7829bf9884f972e0be48a1a31b',
             url_base: 'https://api.openweathermap.org/data/2.5/',
             query: '',
             weather: {},
-            loader: false
+            loader: false,
+            coordinates: ''
         }
     },
+    mounted() {
+      this.printCurrentPosition()
+    },
     methods: {
+        async printCurrentPosition() {
+          this.coordinates = await Geolocation.getCurrentPosition()
+
+          return console.log('Current position:', this.coordinates)
+        },
         fetchWeather(e) {
             if (e.key == "Enter") {
                 if (this.weather != {}) {
-                  this.weather = {} 
+                  this.weather = {}
                 }
                 this.loader = true;
                 fetch(`${this.url_base}weather?q=${this.query}&units=metric&APPID=${this.api_key}`)
                     .then(res => {
                         return res.json();
                     })
-                    .then(this.setResults);
+                    .then(this.setResults)
+                    .finally(res => {
+                      console.log(res)
+                    })
             }
         },
         setResults(results) {
