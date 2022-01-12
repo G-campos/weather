@@ -7,6 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "android:open": "yarn build && npx cap sync && npx cap open android",
+    "android:sync": "yarn build && npx cap sync",
     "android:run": "yarn build && npx cap sync && npx cap run android",
     "electron:build": "vue-cli-service electron:build",
     "electron:serve": "vue-cli-service electron:serve",
