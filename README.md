@@ -7,25 +7,27 @@ yarn install
 
 ### Compiles and hot-reloads for development
 ```
-yarn run serve
-```
-#### or for electron development
-```
-yarn run electron:serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-yarn run build
-```
-#### or for electron build
-```
-yarn run electron:build
+yarn build
 ```
 
 ### Lints and fixes files
 ```
-npm run lint
+npm lint
+```
+
+### Compiles for development and open Android Studio 
+```
+yarn android:open
+```
+
+### Compiles for development and Sync Android Project
+```
+yarn android:sync
 ```
 
 ### Customize configuration
